@@ -5,14 +5,26 @@ import CountrySelector from './components/country-selector/country-selector';
 import LayerSelector from './components/layer-selector/layer-selector';
 import Legend from './components/legend/legend';
 
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 function App() {
   return (
     <div className="App">
-      <CountrySelector/>
-      <LayerSelector/>
-      <Legend/>
-      <Map/>
+      <Container sx={{ pt: 3 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <CountrySelector/>
+          </Grid>
+          <Grid item xs={6}>
+          </Grid>
+          <Grid item xs={3}>
+            <LayerSelector/>
+          </Grid>
+        </Grid>
+        <Legend/>
+        <Map/>
+      </Container>
     </div>
   );
 }

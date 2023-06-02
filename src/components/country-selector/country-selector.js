@@ -12,7 +12,7 @@ const CountrySelector = () => (
 
     <div>
       <FormControl fullWidth>
-        <InputLabel id="country-select-label">Select country</InputLabel>
+        <InputLabel id="country-select-label">Country</InputLabel>
         <Select
           labelId="country-select-label"
           id="country-select"
