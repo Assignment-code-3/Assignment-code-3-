@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Container sx={{ pt: 3 }}>
-        <Grid container spacing={2}>
+        <Grid className="top-interface" container spacing={2}>
           <Grid item xs={3}>
             <CountrySelector/>
           </Grid>

@@ -16,6 +16,7 @@ const CountrySelector = () => (
         <Select
           labelId="country-select-label"
           id="country-select"
+          variant="filled"
           label="Layer"
         >
           <MenuItem value={10}>Global</MenuItem>
