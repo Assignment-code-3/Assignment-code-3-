@@ -13,19 +13,25 @@ export const layersSlice = createSlice({
     setHazardsData: (state, action) => {
       if(state.hazardsData) return state;
 
-      let features = action.payload.map((conflict) => {
+      let features = action.payload
+      .filter(hazard => hazard.type !== 'COMBAT' && hazard.type !== 'TERRORISM'
+      && hazard.type !== 'CIVILUNREST' && hazard.type !== 'CYBER'
+      && hazard.type !== 'SEVEREWEATHER' && hazard.type !== 'ACCIDENT'
+      && hazard.type !== 'INCIDENT' && hazard.type !== 'EQUIPMENT'
+    )
+      .map((hazard) => {
         return {
           "type": "Feature",
           "properties": {
-            "name": conflict.name,
-            "created": conflict.created,
-            "lastUpdate": conflict.lastUpdate,
-            "type": conflict.type,
-            "severity": conflict.severity,
+            "name": hazard.name,
+            "created": hazard.created,
+            "lastUpdate": hazard.lastUpdate,
+            "type": hazard.type,
+            "severity": hazard.severity,
           },
           "geometry": {
             "type": "Point",
-            "coordinates": [conflict.longitude, conflict.latitude]
+            "coordinates": [hazard.longitude, hazard.latitude]
           }
         }
       })

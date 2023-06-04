@@ -5,7 +5,7 @@ import './layer-selector.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleHazards, setHazardsData } from './layers-selector-slice';
 
-import service from '../../service'
+import service from '../../service';
 
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -26,7 +26,7 @@ const LayerSelector = () => {
     return data;
   }
 
-  let handleConflictToggle = async () => {
+  let handleHazardsToggle = async () => {
     if(hazardsData === null) {
       let data = await getConflict();
       dispatch(setHazardsData(data.hazards))
@@ -56,12 +56,12 @@ const LayerSelector = () => {
         value="conflict"
         size="small"
         selected={hazardsVisible}
-        onChange={handleConflictToggle}
+        onChange={handleHazardsToggle}
       >
-        Conflict
+        Hazards
       </ToggleButton>
         <Button variant="outlined" size="small">
-          Hazards
+          Conflict
         </Button>
       </div>
     </div>
