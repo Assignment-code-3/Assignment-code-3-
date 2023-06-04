@@ -10,7 +10,6 @@ import { useSelector  } from 'react-redux';
 
 const CountryHighlights = () => {
   let activeCountryData = useSelector((state) => state.country.activeCountryData);
-  console.log(activeCountryData)
   return (
     <div className="country-highlights" data-testid="CountryHighlights">
     {activeCountryData && <Box sx={{

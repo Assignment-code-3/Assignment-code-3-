@@ -10,7 +10,6 @@ export const layersSlice = createSlice({
   reducers: {
     selectCountry: (state, action) => {
       state.activeCountry = action.payload
-      console.log(state.countryData)
       state.activeCountryData = state.countryData.find((country) => {
         return country.country.iso3 === action.payload
       })

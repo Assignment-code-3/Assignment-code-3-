@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { useSelector, useDispatch } from 'react-redux';
 
 import service from '../../service';
-import { setCountryData } from '../country-selector/country-selector-slice';
+import { setCountryData, selectCountry } from '../country-selector/country-selector-slice';
 
 import L from 'leaflet';
 
@@ -18,6 +18,7 @@ import store from '../../store/store';
 
 function CountryJson () {
   let activeCountry = useSelector((state) => state.country.activeCountry),
+  dispatch = useDispatch(),
   africaShapesFiltered = activeCountry ?
     {"type":"FeatureCollection","features":africaShapes.features.filter(feature => feature.properties.iso_a3 === activeCountry)} :
     africaShapes;
@@ -28,6 +29,9 @@ function CountryJson () {
       map.flyToBounds(data.target.getBounds(), {
         padding: [100,100]
       })
+    },
+    click: (data) => {
+      dispatch(selectCountry(data.layer.feature.properties.iso_a3))
     }
   }} key={activeCountry} data={africaShapesFiltered} />)
 }
