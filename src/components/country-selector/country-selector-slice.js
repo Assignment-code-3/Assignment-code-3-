@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const layersSlice = createSlice({
-  name: 'layers',
+  name: 'country',
   initialState: {
     activeCountry: '',
     countryData: null,
@@ -10,41 +10,19 @@ export const layersSlice = createSlice({
   reducers: {
     selectCountry: (state, action) => {
       state.activeCountry = action.payload
-    },
-    setActiveCountryData: (state, action) => {
-      if(state.hazardsData) return state;
-
-      let features = action.payload
-      .filter(hazard => hazard.type !== 'COMBAT' && hazard.type !== 'TERRORISM'
-        && hazard.type !== 'CIVILUNREST' && hazard.type !== 'CYBER'
-        && hazard.type !== 'SEVEREWEATHER' && hazard.type !== 'ACCIDENT'
-        && hazard.type !== 'INCIDENT' && hazard.type !== 'EQUIPMENT'
-      )
-      .map((hazard) => {
-        return {
-          "type": "Feature",
-          "properties": {
-            "name": hazard.name,
-            "created": hazard.created,
-            "lastUpdate": hazard.lastUpdate,
-            "type": hazard.type,
-            "severity": hazard.severity,
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [hazard.longitude, hazard.latitude]
-          }
-        }
+      state.activeCountryData = state.countryData.find((country) => {
+        return country.iso3 === action.payload
       })
-      state.hazardsData = {
-        "type": "FeatureCollection",
-        "features": features
-      }
+      console.log(state, action)
+    },
+    setCountryData: (state, action) => {
+      state.countryData = action.payload
+      console.log(state, action)
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { toggleHazards, setHazardsData } = layersSlice.actions
+export const { selectCountry, setCountryData } = layersSlice.actions
 
 export default layersSlice.reducer
