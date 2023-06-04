@@ -23,7 +23,7 @@ function CountryJson () {
   const map = useMap();
   return (<GeoJSON eventHandlers={{
     add: (data) => {
-      map.flyToBounds(data.target.getBounds(), {
+      map.fitBounds(data.target.getBounds(), {
         padding: [100,100]
       })
     },

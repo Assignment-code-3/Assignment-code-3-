@@ -17,20 +17,20 @@ const CountryHighlights = () => {
       }}>
       <List>
         <ListItem>
-          <ListItemText primary={activeCountryData.population.number} secondary={'Population ' + activeCountryData.population.year}>
-          </ListItemText>
+          {activeCountryData.population && <ListItemText primary={activeCountryData.population.number} secondary={'Population ' + activeCountryData.population.year}>
+          </ListItemText>}
         </ListItem>
         <ListItem>
-          <ListItemText primary={activeCountryData.chronic_hunger.number} secondary={'Chronic hunger ' + activeCountryData.chronic_hunger.period}>
-          </ListItemText>
+          {activeCountryData.chronic_hunger && <ListItemText primary={activeCountryData.chronic_hunger.number} secondary={'Chronic hunger ' + activeCountryData.chronic_hunger.period}>
+          </ListItemText>}
         </ListItem>
         <ListItem>
-          <ListItemText primary={activeCountryData.malnutrition.acute_percent + '%'} secondary={'Acute Malnutrition ' + activeCountryData.malnutrition.year + ' (% population)'}>
-          </ListItemText>
+          {activeCountryData.malnutrition && <ListItemText primary={activeCountryData.malnutrition.acute_percent + '%'} secondary={'Acute Malnutrition ' + activeCountryData.malnutrition.year + ' (% population)'}>
+          </ListItemText>}
         </ListItem>
         <ListItem>
-          <ListItemText primary={activeCountryData.malnutrition.chronic_percent + '%'} secondary={'Chronic Malnutrition ' + activeCountryData.malnutrition.year + ' (% population)'}>
-          </ListItemText>
+          {activeCountryData.malnutrition && <ListItemText primary={activeCountryData.malnutrition.chronic_percent + '%'} secondary={'Chronic Malnutrition ' + activeCountryData.malnutrition.year + ' (% population)'}>
+          </ListItemText>}
         </ListItem>
       </List>
       </Box>}
