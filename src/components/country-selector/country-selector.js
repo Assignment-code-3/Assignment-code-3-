@@ -4,10 +4,8 @@ import './country-selector.css';
 
 import africaShapes from '../../assets/africa-outline_1138.json';
 
-import service from '../../service';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCountry, setCountryData } from './country-selector-slice';
+import { selectCountry } from './country-selector-slice';
 
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -17,13 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 const CountrySelector = () => {
   let countryList = africaShapes.features.map(feature => feature.properties);
   const activeCountry = useSelector((state) => state.country.activeCountry),
-  countryData = useSelector((state) => state.country.countryData),
   dispatch = useDispatch();
-  let handleSelectCoutry = async ({target}) => {
-    if(!countryData) {
-      let data = await service.loadCountryData();
-      dispatch(setCountryData(data.countries))
-    }
+  let handleSelectCoutry = ({target}) => {
     dispatch(selectCountry(target.value))
   }
   return (

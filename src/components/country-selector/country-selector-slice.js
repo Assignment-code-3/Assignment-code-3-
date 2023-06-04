@@ -13,11 +13,9 @@ export const layersSlice = createSlice({
       state.activeCountryData = state.countryData.find((country) => {
         return country.iso3 === action.payload
       })
-      console.log(state, action)
     },
     setCountryData: (state, action) => {
       state.countryData = action.payload
-      console.log(state, action)
     }
   },
 })

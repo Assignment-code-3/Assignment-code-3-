@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export default {
+let service = {
   loadHazardsData,
   loadCountryData
-}
+};
 
 async function loadHazardsData(){
   const resp = await axios.get(`https://api.hungermapdata.org/v1/climate/hazards`);
@@ -14,3 +14,5 @@ async function loadCountryData() {
   const resp = await axios.get(`https://api.hungermapdata.org/v2/info/country`);
   return resp.data;
 }
+
+export default service
