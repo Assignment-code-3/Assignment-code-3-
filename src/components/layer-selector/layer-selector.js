@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import './layer-selector.css';
 
 import { useSelector, useDispatch } from 'react-redux';

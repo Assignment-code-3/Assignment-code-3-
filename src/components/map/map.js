@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
+
 import './map.css';
 import africaShapes from '../../assets/africa-outline_1138.json';
 
@@ -12,9 +12,6 @@ import { setCountryData, selectCountry } from '../country-selector/country-selec
 import L from 'leaflet';
 
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
-
-import store from '../../store/store';
-
 
 function CountryJson () {
   let activeCountry = useSelector((state) => state.country.activeCountry),

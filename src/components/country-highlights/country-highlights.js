@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import './country-highlights.css';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';

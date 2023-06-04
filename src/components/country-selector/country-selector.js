@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import './country-selector.css';
 
 import africaShapes from '../../assets/africa-outline_1138.json';
