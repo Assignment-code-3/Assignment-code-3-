@@ -3,14 +3,15 @@ import { createSlice } from '@reduxjs/toolkit'
 export const layersSlice = createSlice({
   name: 'layers',
   initialState: {
-    hazardsVisible: false,
-    hazardsData: null
+    activeCountry: '',
+    countryData: null,
+    activeCountryData: null
   },
   reducers: {
-    toggleHazards: (state) => {
-      state.hazardsVisible = !state.hazardsVisible
+    selectCountry: (state, action) => {
+      state.activeCountry = action.payload
     },
-    setHazardsData: (state, action) => {
+    setActiveCountryData: (state, action) => {
       if(state.hazardsData) return state;
 
       let features = action.payload
