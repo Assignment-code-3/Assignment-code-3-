@@ -7,11 +7,6 @@ import { toggleHazards, setHazardsData } from './layers-selector-slice';
 
 import service from '../../service';
 
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
 import ToggleButton from '@mui/material/ToggleButton';
 
 
@@ -37,21 +32,6 @@ const LayerSelector = () => {
   return(
     <div className="layer-selector" data-testid="LayerSelector">
       <div>
-        <FormControl fullWidth>
-          <InputLabel id="layer-select-label">Layer</InputLabel>
-          <Select
-            labelId="layer-select-label"
-            id="layer-select"
-            variant="filled"
-            label="Layer"
-          >
-            <MenuItem value={10}>2</MenuItem>
-            <MenuItem value={20}>1</MenuItem>
-            <MenuItem value={30}>3</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-      <div>
       <ToggleButton
         value="conflict"
         size="small"
@@ -60,9 +40,6 @@ const LayerSelector = () => {
       >
         Hazards
       </ToggleButton>
-        <Button variant="outlined" size="small">
-          Conflict
-        </Button>
       </div>
     </div>
   )};
