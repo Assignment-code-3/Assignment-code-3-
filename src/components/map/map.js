@@ -24,7 +24,7 @@ function CountryJson () {
   return (<GeoJSON eventHandlers={{
     add: (data) => {
       map.fitBounds(data.target.getBounds(), {
-        padding: [100,100]
+        padding: [50,50]
       })
     },
     click: (data) => {
@@ -60,7 +60,7 @@ const Map = () => {
   });
 
   return (
-    <div className="map" data-testid="Map" style={{ height: '900px' }}>
+    <div className="map" data-testid="Map">
       <MapContainer center={[-5.355848, 21.640487]} zoom={3}>
         <TileLayer
           url="https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGVuc2VnIiwiYSI6ImNpbm8ydWdnbzEwM2h1a20zanU5dTRmd2IifQ.HJplRyZIckK5LQLTgj5WAA"
